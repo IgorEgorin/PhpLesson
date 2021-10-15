@@ -1,7 +1,7 @@
 <?php
 
 
-$arg1 = 10;
+$arg1 = 20;
 $arg2 = 2;
 
 function summary(int $a, int $b) {
@@ -35,4 +35,8 @@ function mathOperation($arg1, $arg2, $operation) {
     }
 }
 
-mathOperation($arg1,$arg2,'summary');
+?>
+
+<p><?php echo mathOperation($arg1,$arg2,'summary');?></<p>
+
+

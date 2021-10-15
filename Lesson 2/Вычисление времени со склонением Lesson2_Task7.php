@@ -38,6 +38,6 @@ function getTime(){
     echo HOUR . ' час' . returnEndOfHour() . ' ' . MINUTES . ' минут' . returnEndOfMinutes() ;
 }
 
-getTime();
+?>
 
-//TODO доделать ифы
+<p><?php echo getTime();?></<p>

@@ -11,14 +11,20 @@ function transliterate(string $word){
         'с' => 's',   'т' => 't',   'у' => 'u',
         'ф' => 'f',   'х' => 'h',   'ц' => 'c',
         'ч' => 'ch',  'ш' => 'sh',  'щ' => 'sch',
-        'ь' => '',  'ы' => 'y',   'ъ' => '',
+        'ь' => '',    'ы' => 'y',   'ъ' => '',
         'э' => 'e',   'ю' => 'yu',  'я' => 'ya',
+        ' ' => '_'
     ];
 
-    foreach($dictionary as $key => $value){
-        echo $key;
-        echo $value;
+    $result = [];
 
+    for ($i = 0; $i < mb_strlen($word); $i++){
+        $char = mb_substr($word, $i, 1);
+        $result[] = $dictionary[$char] ?? "";
     }
+    return implode($result);
 }
-transliterate('Привет');
+
+?>
+
+<h1><?php echo transliterate("замена пробелов в урле");?></<h1>

@@ -1,6 +1,6 @@
 <?php
 
-
+function runLoop(){
     $i=0;
     for(;;)
     {
@@ -10,3 +10,8 @@
             break;
         }
     }
+}
+
+?>
+
+<p><?php echo runLoop();?></<p>

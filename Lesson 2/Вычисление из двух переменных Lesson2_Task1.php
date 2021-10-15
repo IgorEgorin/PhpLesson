@@ -17,4 +17,7 @@ function calculate(int $a, int $b) {
 
 }
 
-calculate($a,$b);
+
+?>
+
+<p><?php echo calculate($a,$b);?></<p>

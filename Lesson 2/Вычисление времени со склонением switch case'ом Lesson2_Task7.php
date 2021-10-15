@@ -6,12 +6,10 @@ define('MINUTES',date('i'));
 
 function returnEndOfHourSwitch()
 {
-//break можно и удалить
     switch (HOUR) {
         case 1:
         case 21:
             return "";
-            break;
         case 2:
         case 3:
         case 4:
@@ -19,7 +17,6 @@ function returnEndOfHourSwitch()
         case 23:
         case 24:
             return "а";
-            break;
         default:
             return "ов";
     }
@@ -34,7 +31,6 @@ function returnEndOfMinutesSwitch(){
         case 41:
         case 51:
             return "а";
-            break;
         case 2:
         case 3:
         case 4:
@@ -50,7 +46,6 @@ function returnEndOfMinutesSwitch(){
         case 53:
         case 54:
             return "ы";
-            break;
         default:
             return "";
     }
@@ -60,4 +55,6 @@ function getTimeSwicthCase(){
     echo HOUR . ' час' . returnEndOfHourSwitch() . ' ' . MINUTES . ' минут' . returnEndOfMinutesSwitch() ;
 }
 
-getTimeSwicthCase();
+?>
+
+<h1><?php echo getTimeSwicthCase();?></<h1>

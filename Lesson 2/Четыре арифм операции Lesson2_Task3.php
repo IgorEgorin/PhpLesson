@@ -20,7 +20,9 @@ function divide(int $a, int $b) {
     return $a / $b;
 }
 
-var_dump(summary($a,$b));
-var_dump(deduct($a,$b));
-var_dump(multiple($a,$b));
-var_dump(divide($a,$b));
+?>
+
+<p><?php echo (summary($a,$b));?></<p>
+<p><?php echo (deduct($a,$b));?></<p>
+<p><?php echo (multiple($a,$b));?></<p>
+<p><?php echo (divide($a,$b));?></<p>
