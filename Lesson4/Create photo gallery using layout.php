@@ -14,9 +14,8 @@ $images = array_filter(
 foreach ($images as $image):
     $imgUrl = "/public/img/{$image}";
     ?>
-    <a href="<?= $imgUrl ?>" target='_blank'>
+    <a href="/photo.php"?id="" >
         <img src="<?= $imgUrl ?>" width='200'>
-
     </a>
 
 <? endforeach;
