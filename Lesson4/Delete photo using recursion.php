@@ -3,13 +3,21 @@ include_once __DIR__ . "/../config/main.php";
 
 $directory = PUBLIC_DIR . "folderForDelete";
 
-$files = array_diff(scandir($directory), ['..', '.']);
-//var_dump($files);
+//var_dump($directory);
 
-foreach ($files as $file):
-        var_dump($file);
+function removeDir($dir){
+    $files = array_diff(scandir($dir), ['..', '.']);
 
-    ?>
+    foreach ($files as $file) {
+        $path = $dir . '/' . $file;
 
+        if (is_dir($path)) {
+            var_dump($path);
+        } else {
+            var_dump($path);
+        }
+    }
 
-<? endforeach;
+}
+
+removeDir($directory);
