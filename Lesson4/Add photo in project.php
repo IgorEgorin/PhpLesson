@@ -6,17 +6,16 @@
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
+
     $message = array();
     $fileFormatJpeg = 'image/jpeg';
     $fileFormatPng = 'image/png';
-    $maxPictureSize = 120000;
+    $maxPictureSize = 800000;
+
     $name = $_FILES['image']['name'];
     $tmp_name = $_FILES['image']['tmp_name'];
     $size = $_FILES['image']['size'];
     $type = $_FILES['image']['type'];
-
-    var_dump($size);
-    var_dump($type);
 
     if (($type == $fileFormatJpeg || $type == $fileFormatPng) && $size <= $maxPictureSize){
         move_uploaded_file($tmp_name, __DIR__ . "/../public/img/" . $name);

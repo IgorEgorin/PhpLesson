@@ -3,23 +3,22 @@ include_once __DIR__ . "/../config/main.php";
 
 $directory = PUBLIC_DIR . "folderForDelete";
 
-//var_dump($directory);
+function remove($dir){
 
-function scan($dir){
+    $files = array_diff(scandir($dir), ['..', '.']);
 
-    $d = opendir($dir);
+    foreach ($files as $file) {
 
-    while ( false !== ($name = readdir($d)) ){
-        if ( $name == '.' or  $name == '..' ) continue;
-        if ( is_dir($dir . '/' . $name )) {
-            scan( $dir . '/' . $name);
-//            var_dump($name);
-        }else{
-            unlink($dir . '/' . $name);
-//            var_dump($name);
+        $path = $dir . '/' . $file;
+
+        if (is_dir($path)){
+            remove($path);
+        } else {
+            unlink($path);
         }
     }
+
     rmdir($dir);
 }
 
-scan($directory);
+remove($directory);
