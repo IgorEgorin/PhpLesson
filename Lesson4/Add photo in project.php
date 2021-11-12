@@ -6,20 +6,26 @@
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
-        $error = array();
-        $name = $_FILES['image']['name'];
-        $tmp_name = $_FILES['image']['tmp_name'];
-        $size = $_FILES['image']['size'];
-        $type = $_FILES['image']['type'];
+    $message = array();
+    $fileFormatJpeg = 'image/jpeg';
+    $fileFormatPng = 'image/png';
+    $maxPictureSize = 120000;
+    $name = $_FILES['image']['name'];
+    $tmp_name = $_FILES['image']['tmp_name'];
+    $size = $_FILES['image']['size'];
+    $type = $_FILES['image']['type'];
 
-        var_dump($size);
-        if ($size >= 600000){
-            $error[] = 'file not 120';
-        } else {
-            move_uploaded_file($tmp_name, __DIR__ . "/../public/img/" . $name);
-            echo "файл был загружен";
-        }
+    var_dump($size);
+    var_dump($type);
+
+    if (($type == $fileFormatJpeg || $type == $fileFormatPng) && $size <= $maxPictureSize){
+        move_uploaded_file($tmp_name, __DIR__ . "/../public/img/" . $name);
+        echo "File was loaded";
+    }
+    else {
+        $message[] = "'file not is '$fileFormatJpeg' , '$fileFormatPng' or more than '$maxPictureSize'";
+        var_dump($message);
+    }
 
 
 }
-

@@ -5,19 +5,21 @@ $directory = PUBLIC_DIR . "folderForDelete";
 
 //var_dump($directory);
 
-function removeDir($dir){
-    $files = array_diff(scandir($dir), ['..', '.']);
+function scan($dir){
 
-    foreach ($files as $file) {
-        $path = $dir . '/' . $file;
+    $d = opendir($dir);
 
-        if (is_dir($path)) {
-            var_dump($path);
-        } else {
-            var_dump($path);
+    while ( false !== ($name = readdir($d)) ){
+        if ( $name == '.' or  $name == '..' ) continue;
+        if ( is_dir($dir . '/' . $name )) {
+            scan( $dir . '/' . $name);
+//            var_dump($name);
+        }else{
+            unlink($dir . '/' . $name);
+//            var_dump($name);
         }
     }
-
+    rmdir($dir);
 }
 
-removeDir($directory);
+scan($directory);
