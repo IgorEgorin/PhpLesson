@@ -16,7 +16,7 @@ function getConnection()
     return $connection;
 }
 
-function queryAll(string $sql) {
+function cqueryAll(string $sql) {
     $res = mysqli_query(getConnection(), $sql);
     return mysqli_fetch_all($res, MYSQLI_ASSOC);
 }
