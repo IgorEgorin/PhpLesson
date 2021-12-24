@@ -16,7 +16,15 @@ function getConnection()
     return $connection;
 }
 
-function cqueryAll(string $sql) {
+function addNewFeedback(string $sql) {
+    return queryAll($sql)[0];
+}
+
+function queryOne(string $sql) {
+    return queryAll($sql)[0];
+}
+
+function queryAll(string $sql) {
     $res = mysqli_query(getConnection(), $sql);
     return mysqli_fetch_all($res, MYSQLI_ASSOC);
 }

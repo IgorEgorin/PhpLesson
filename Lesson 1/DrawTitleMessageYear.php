@@ -10,5 +10,3 @@ $year = "2021";
 <p><?php echo $message;?></<p>
 <p><?php echo $year;?></<p>
 
-//TODO разобраться откуда
-

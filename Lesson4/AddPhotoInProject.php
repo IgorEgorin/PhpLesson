@@ -1,4 +1,4 @@
-<form action="Add photo in project.php" method="post" enctype="multipart/form-data">
+<form action="AddPhotoInProject.php" method="post" enctype="multipart/form-data">
 <input type="file" name="image">
 <button type="submit">Submit</button>
 </form>
@@ -23,7 +23,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     else {
         $message[] = "'file not is '$fileFormatJpeg' , '$fileFormatPng' or more than '$maxPictureSize'";
-        var_dump($message);
     }
 
 
